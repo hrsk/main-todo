@@ -42,7 +42,7 @@ export default tseslint.config([
                         "internal", // внутренние алиасы проекта
                         ["parent", "sibling", "index"], // относительные импорты
                     ],
-                    "newlines-between": "always", // пустая строка между группами
+                    "newlines-between": "always-and-inside-groups", // пустая строка между группами
                     alphabetize: { order: "asc", caseInsensitive: true }, // сортировка по алфавиту
                 },
             ],

@@ -1,7 +1,9 @@
+import { AppRouter } from "./app/router";
+
 function App() {
     return (
         <>
-            <h1>TODO</h1>
+            <AppRouter />
         </>
     );
 }
