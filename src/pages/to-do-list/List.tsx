@@ -8,21 +8,31 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card.tsx";
+import type { Task } from "@/pages/to-do-lists/Lists.tsx";
 
-export const List = () => {
+type Props = {
+    title: string;
+    description: string;
+    tasks: Task[];
+};
+export const List = (props: Props) => {
+    const { title, description, tasks } = props;
+
     return (
         <Card className={"flex min-w-2.5 max-w-md"}>
             <CardHeader>
-                <CardTitle>Todolist title</CardTitle>
+                <CardTitle>{title}</CardTitle>
                 <CardAction>
                     <Button variant={"secondary"}>x</Button>
                 </CardAction>
-                <CardDescription>
-                    Date created: {new Date().getFullYear()}
-                </CardDescription>
+                <CardDescription>{description.slice(0, 10)}</CardDescription>
             </CardHeader>
             <CardContent>
-                <span>Tasks</span>
+                <ul>
+                    {tasks.map((task) => (
+                        <li key={task.id}>{task.attributes.title}</li>
+                    ))}
+                </ul>
             </CardContent>
             <CardFooter>
                 <Button variant={"default"}>ALL</Button>
